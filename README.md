@@ -37,7 +37,7 @@ To address the latency common in LLM applications, streaming was implemented fro
 #### 🎬 Full Demo Video (Persistence & Streaming)
 
 <p align="center">
-  <video src="./min_bot.mp4" controls width="600"></video>
+  <video src="mini_bot.mp4" controls width="600"></video>
 </p>
 
 ### 💻 Local Setup and Installation
