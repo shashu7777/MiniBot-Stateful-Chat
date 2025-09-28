@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Dependency files
+.mypy_cache/
+
+# Streamlit
+.streamlit/
+/logs/
+
+# Database and Secrets
+*.db              
+.env              
