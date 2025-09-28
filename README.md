@@ -34,15 +34,10 @@ To address the latency common in LLM applications, streaming was implemented fro
 * **Implementation:** The Gemini LLM is called with a streaming endpoint, and the output is immediately consumed by the Streamlit chat element, displaying the text in real-time for an interactive feel.
 
 ***
-
-### 🎥 Demo and Screenshots
-
-**NOTE:** To make the video and image visible, you must create a folder named `assets` in your repository and place the following files inside it: `mini bot.mp4` and `streamlit_interface.png` (which is your original `image_b8d137.png` renamed).
-
 #### 🎬 Full Demo Video (Persistence & Streaming)
 
 <p align="center">
-  <video src="mini_bot.mp4" controls width="600"></video>
+  <video src="./min_bot.mp4" controls width="600"></video>
 </p>
 
 ### 💻 Local Setup and Installation
@@ -58,7 +53,7 @@ Follow these steps to get a copy of the project running locally.
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+    git clone https://github.com/shashu7777/MiniBot-Stateful-Chat.git
     cd YOUR_REPOSITORY_NAME
     ```
 
