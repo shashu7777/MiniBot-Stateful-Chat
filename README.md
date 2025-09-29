@@ -26,7 +26,7 @@ This project is a mini-chatbot built to **explore and implement core concepts** 
 #### 1. State Persistence with LangGraph Checkpointing
 To ensure the bot could pick up exactly where it left off, I utilized LangGraph's built-in **Checkpointing** feature. This moves beyond simple in-memory history.
 
-* **Implementation:** LangGraph was configured to use a **`SqliteSaver`**, which automatically handles saving and loading the entire conversation state (stored as a list of `BaseMessage` objects) to a local database (`chat_history.db`).
+* **Implementation:** LangGraph was configured to use a **`SqliteSaver`**, which automatically handles saving and loading the entire conversation state (stored as a list of `BaseMessage` objects) to a local database (`chatbot.db`).
 
 #### 2. Enhanced UX with Streaming
 To address the latency common in LLM applications, streaming was implemented from the model to the UI.
@@ -52,7 +52,7 @@ Follow these steps to get a copy of the project running locally.
 1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/shashu7777/MiniBot-Stateful-Chat.git
-    cd YOUR_REPOSITORY_NAME
+    cd MiniBot-Stateful-Chat
     ```
 
 2.  **Create a Virtual Environment (Recommended):**
