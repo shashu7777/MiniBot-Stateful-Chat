@@ -24,8 +24,6 @@ To address the latency common in LLM applications, streaming was implemented fro
 
 ***
 
----
-
 ## 🚀 Upgrade: Long-Term Memory
 
 MiniBot has now been upgraded with a **Long-Term Memory system**, enabling the chatbot to remember important user information across different conversation threads.
