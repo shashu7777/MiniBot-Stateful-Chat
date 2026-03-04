@@ -10,6 +10,20 @@ This project is a mini-chatbot built to **explore and implement core concepts** 
 
 ***
 
+### 🧠 Core Concepts Explored
+
+#### 1. State Persistence with LangGraph Checkpointing
+To ensure the bot could pick up exactly where it left off, I utilized LangGraph's built-in **Checkpointing** feature. This moves beyond simple in-memory history.
+
+* **Implementation:** LangGraph was configured to use a **`SqliteSaver`**, which automatically handles saving and loading the entire conversation state (stored as a list of `BaseMessage` objects) to a local database (`chatbot.db`).
+
+#### 2. Enhanced UX with Streaming
+To address the latency common in LLM applications, streaming was implemented from the model to the UI.
+
+* **Implementation:** The Gemini LLM is called with a streaming endpoint, and the output is immediately consumed by the Streamlit chat element, displaying the text in real-time for an interactive feel.
+
+***
+
 ---
 
 ## 🚀 Upgrade: Long-Term Memory
@@ -129,19 +143,7 @@ This architecture allows the system to maintain **context within conversations**
 
 ***
 
-### 🧠 Core Concepts Explored
 
-#### 1. State Persistence with LangGraph Checkpointing
-To ensure the bot could pick up exactly where it left off, I utilized LangGraph's built-in **Checkpointing** feature. This moves beyond simple in-memory history.
-
-* **Implementation:** LangGraph was configured to use a **`SqliteSaver`**, which automatically handles saving and loading the entire conversation state (stored as a list of `BaseMessage` objects) to a local database (`chatbot.db`).
-
-#### 2. Enhanced UX with Streaming
-To address the latency common in LLM applications, streaming was implemented from the model to the UI.
-
-* **Implementation:** The Gemini LLM is called with a streaming endpoint, and the output is immediately consumed by the Streamlit chat element, displaying the text in real-time for an interactive feel.
-
-***
 #### 🎬 Full Demo Video (Persistence & Streaming)
 
 ![Demo](mini_bot.gif)
