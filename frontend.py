@@ -163,7 +163,7 @@ if 'chat_threads' not in st.session_state:
 
 # **************************************** Sidebar UI (Highlighting) *********************************
 
-st.sidebar.title('LangGraph Chatbot')
+st.sidebar.title('MiniBot')
 
 if st.sidebar.button('➕ New Chat', help='Start a new conversation', key='new_chat_btn', type='primary'):
     reset_chat()
