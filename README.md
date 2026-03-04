@@ -10,6 +10,114 @@ This project is a mini-chatbot built to **explore and implement core concepts** 
 
 ***
 
+---
+
+## 🚀 Upgrade: Long-Term Memory
+
+MiniBot has now been upgraded with a **Long-Term Memory system**, enabling the chatbot to remember important user information across different conversation threads.
+
+Unlike basic chatbots that only remember messages within a single conversation, this upgrade allows the system to **store and reuse important user facts permanently**, making responses more **personalized and context-aware**.
+
+### 🧠 What Long-Term Memory Means
+
+Long-term memory allows the bot to store key user information and reuse it in future conversations.
+
+Example:
+
+User says in one thread:
+
+> "I am a software engineer by profession."
+
+This information is stored as **important memory**.
+
+Later, in a completely different thread, if the user asks:
+
+> "Suggest some ways I can improve my career."
+
+The chatbot retrieves the stored memory and generates advice specifically tailored for **software engineers**.
+
+This enables **true cross-thread personalization**.
+
+---
+
+### 🧩 The Challenge
+
+Large Language Models are **stateless by default**.
+
+Even though MiniBot supports **multiple chat threads**, the model itself does not remember previous conversations when switching threads.
+
+To solve this, I built a **Long-Term Memory Layer**.
+
+---
+
+### 🛠 How It Works
+
+#### Memory Extraction
+
+A dedicated **Memory LLM** checks whether a user message contains important long-term information.
+
+Model used:
+
+`gpt-oss-20b` via **Groq**
+
+If the message contains useful information about the user, it gets extracted and prepared for storage.
+
+---
+
+#### Memory Embeddings
+
+The extracted memory is converted into **semantic embeddings** using:
+
+`all-MiniLM-L6-v2` from **Hugging Face**
+
+This allows efficient semantic similarity search.
+
+---
+
+#### Memory Storage
+
+The embeddings are stored in **PostgreSQL** using **pgvector**, enabling fast vector similarity search.
+
+---
+
+#### Memory Retrieval
+
+Instead of passing **all stored memories** (or blindly sending top-k memories), the system performs **semantic search based on the current user query**.
+
+Only the **most relevant memories** are retrieved and passed to the chat model.
+
+This helps:
+
+✔ Reduce token usage  
+✔ Avoid context window overflow  
+✔ Improve relevance  
+✔ Make responses more personalized  
+
+---
+
+### ⚙️ Models Used
+
+| Purpose | Model |
+|------|------|
+| Chat Generation | GPT-OSS-20B (Groq) |
+| Memory Extraction | GPT-OSS-20B (Groq) |
+| Embeddings | all-MiniLM-L6-v2 (HuggingFace) |
+
+---
+
+### 🧠 Memory Architecture
+
+MiniBot now uses **two levels of memory**:
+
+| Memory Type | Description |
+|-------------|-------------|
+| **Short-Term Memory** | Conversation history stored using LangGraph checkpointing with SQLite |
+| **Long-Term Memory** | Important user information stored using embeddings in PostgreSQL + pgvector |
+
+This architecture allows the system to maintain **context within conversations** and **personalization across conversations**.
+
+---
+
 ### ⚙️ Technology Stack
 
 | Component | Technology | Purpose |
