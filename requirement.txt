@@ -4,3 +4,6 @@ langchain-google-genai
 langgraph
 streamlit
 python-dotenv
+langgraph-checkpoint-sqlite
+groq
+langchain-groq
