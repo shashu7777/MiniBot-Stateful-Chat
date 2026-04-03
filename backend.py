@@ -7,17 +7,17 @@ from langgraph.graph.message import add_messages
 from dotenv import load_dotenv
 import sqlite3
 import os
+from langchain_groq import ChatGroq
 
 load_dotenv()
 
 google_api_key=os.getenv('GOOGLE_API_KEY')
 
-llm=ChatGoogleGenerativeAI(
-    model='gemini-2.0-flash',
+llm = ChatGroq(
+    model="openai/gpt-oss-20b",
     temperature=0.7,
-    google_api_key=google_api_key
+    api_key=GROQ_API_KEY
 )
-
 # New LLM instance for summarization with a lower temperature for consistent output
 # summary_llm = ChatGoogleGenerativeAI(
 #     model='gemini-2.0-flash',
