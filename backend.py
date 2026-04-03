@@ -11,7 +11,7 @@ from langchain_groq import ChatGroq
 
 load_dotenv()
 
-google_api_key=os.getenv('GOOGLE_API_KEY')
+GROQ_API_KEY=os.getenv('GROQ_API_KEY')
 
 llm = ChatGroq(
     model="openai/gpt-oss-20b",
